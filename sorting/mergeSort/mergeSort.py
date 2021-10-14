@@ -15,7 +15,7 @@ def mergeSort(unsortedList, lower, upper):
         mid = (lower + upper) // 2;
         mergeSort(unsortedList, lower, mid)
         mergeSort(unsortedList, mid+1, upper)
-        return mergeTwoList(unsortedList, lower, mid, upper)
+        return merge(unsortedList, lower, mid, upper)
 
 # function = merge sort 
 # input = list, lower, upper 
@@ -30,32 +30,30 @@ def mergeSort(unsortedList, lower, upper):
 # function = merge (merge the two sorted List )
 # input = lower, upper, mid and unsortedList 
 # output = sortedList 
-# step1:from lower to mid leftPart 
-# step2:initialize i = 0(range of i is lower to mid) where i is the position of notAdded element of leftPartList
-# step2:initialize j  = mid+1 (range of j is mid+1 to upper) where j is the position of notAdded element of rightPartList 
-# step3:initialize k = 0(range of k is 0 to len of the list)
-# step4:while i <= mid and j <= upper compare ith and jth element 
-#     step4.1:insert the smallest element in the kth position of unsortedList and increase k and that i or j 
-# step5:jodi leftPartList or rightPartList e kono element theke thake then shob element gulo insert korbo kth place e 
+# step1:lower to mid value niye ekta new list banabo 
+# step2:initialize i = 0 where i is the position of element in the new list that is not sorted yet 
+# step3:initialize j = mid+1 where j is the position that is not sorted yet and range (mid+1 to upper)
+# step4:compare ith and jth element :
+#     step4.1:ith choto hole insert that element in unsortedList and increment i 
+#     step4.2:else jth choto hole insert that element in unsortedList and increment j
+# step5:kono ekta list er element shesh hoye gele baki list er ja element thakbe shob add korbo
 # step6:return unsortedList
-
 def merge(unsortedList, lower, mid, upper):
-    i = lower
-    j = mid+1
+    leftList = unsortedList[lower:mid+1]
+    i = 0
+    j = mid + 1
     k = 0
-    while i <= mid and j <= upper:
-        if unsortedList[i] < unsortedList[j]:
-            unsortedList[k] = unsortedList[i]
+    while i < len(leftList) and j <= upper:
+        if leftList[i] < unsortedList[j]:
+            unsortedList[k] = leftList[i]
             i += 1
-            k += 1
             
         else:
             unsortedList[k] = unsortedList[j]
             j += 1
-            k += 1
-
-    while i <= mid:
-        unsortedList[k] = unsortedList[i]
+        k += 1
+    while i < len(leftList):
+        unsortedList[k] = leftList[i]
         i += 1
         k += 1
     while j <= upper:
@@ -63,8 +61,11 @@ def merge(unsortedList, lower, mid, upper):
         j += 1
         k += 1
     return unsortedList
-list = [2, 3, 10, 1, 4, 9]
-print(merge(list, 0, 2, 5))
+
+list1 = [4, 10, 11, 2, 3, 9]
+print(merge(list1, 0,2, 5))
+
+
 
 
 # function = UpdateList(duita list deya thakbe, first list er kothay insert korte hobe tar index deya ase.First list k update korte hobe)
