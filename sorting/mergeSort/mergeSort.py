@@ -62,8 +62,8 @@ def merge(unsortedList, lower, mid, upper):
         k += 1
     return unsortedList
 
-list1 = [4, 10, 11, 2, 3, 9]
-print(merge(list1, 0,2, 5))
+# list1 = [4, 10, 11, 2, 3, 9]
+# print(merge(list1, 0,2, 5))
 
 
 
