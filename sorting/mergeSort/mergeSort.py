@@ -42,7 +42,7 @@ def merge(unsortedList, lower, mid, upper):
     leftList = unsortedList[lower:mid+1]
     i = 0
     j = mid + 1
-    k = 0
+    k = lower
     while i < len(leftList) and j <= upper:
         if leftList[i] < unsortedList[j]:
             unsortedList[k] = leftList[i]
@@ -61,12 +61,6 @@ def merge(unsortedList, lower, mid, upper):
         j += 1
         k += 1
     return unsortedList
-
-# list1 = [4, 10, 11, 2, 3, 9]
-# print(merge(list1, 0,2, 5))
-
-
-
 
 # function = UpdateList(duita list deya thakbe, first list er kothay insert korte hobe tar index deya ase.First list k update korte hobe)
 # function = updateList
@@ -113,5 +107,7 @@ def mergeTwoList(unsortedList, lower, mid, upper):
     unsortedList = updateList(unsortedList, sortedList, lower)
     return unsortedList
 
-list1 = [-8, 3, 4, 12, 30, 3]
-# print(mergeSort(list1, 0, 5))
+print("name of mergeSort:",__name__)
+if __name__ == "__main__":
+    merge([12, 13, 100, -1, 2, 5], 0, 2, 5)
+    print("merge executes")
