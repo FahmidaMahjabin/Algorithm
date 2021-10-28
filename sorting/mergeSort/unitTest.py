@@ -63,6 +63,29 @@ assert merge([-10, -3, 100, -1, 2, 500], 0, 2, 5) == [-10, -3, -1, 2, 100, 500]
 assert merge([12, 13, 100, -1, 2, 5], 0, 2, 5) == [-1, 2, 5, 12, 13, 100]
 print("name from unitTest:",__name__)
 
+# function = test for mergeSort
+# testCases:1)no element 
+# 2)1 element, 
+# 3)large sample1
+# 4)medium sample 
+list1 = [3, 2]
+list2 = [3, 2]
+if list1 == list2:
+    print("list1 and list2 equal")
+def testMergeSort():
+    testCases = [
+        {"testName":"one element", "input": [[3],0,0], "expected":[3]},
+        {"testName":"no element", "input": [[],0, 0], "expected": []},
+        {"testName":"large elements", "input": [[20, 2, 10,-10, 500, 3, 4 ],0, 6], "expected": [-10, 2, 3, 4, 10, 20, 500]},
+        {"testName":"sorted", "input": [[-8, 3, 4, 10, 20],0, 4], "expected": [-8, 3, 4, 10, 20]},
+        {"testName":"reverse order", "input": [[600, 10, 3, -1],0, 3], "expected": [-1, 3, 10, 600]}
+    ]
+    
+    for case in testCases:
+        print(case["input"][0])
+        assert mergeSort(case["input"][0], case["input"][1], case["input"][2] ) == case["expected"], case["testName"]
+
+testMergeSort()
 
 
 

@@ -16,6 +16,8 @@ def mergeSort(unsortedList, lower, upper):
         mergeSort(unsortedList, lower, mid)
         mergeSort(unsortedList, mid+1, upper)
         return merge(unsortedList, lower, mid, upper)
+    else:
+        return unsortedList
 
 # function = merge sort 
 # input = list, lower, upper 
@@ -61,6 +63,8 @@ def merge(unsortedList, lower, mid, upper):
         j += 1
         k += 1
     return unsortedList
+
+print("merge of 1 item", mergeSort([10], 0, 0))
 
 # function = UpdateList(duita list deya thakbe, first list er kothay insert korte hobe tar index deya ase.First list k update korte hobe)
 # function = updateList
