@@ -39,13 +39,13 @@ def swap(list, i, j):
     temporary = list[i]
     list[i] = list[j]
     list[j] = temporary
-
-list1 = [4, 5, 3, 2]
-assert quickSort(list1, 0, 3) == [2, 3, 4, 5]
-list2= [10, 7, 5, 2]
-print(quickSort(list2, 0, 3))
-assert quickSort(list2, 0, 3) == [2, 5, 7, 10]
-list3 = [10, 8, -2, 3, 16, 100]
-assert quickSort(list3, 0, 5) == [-2, 3, 8, 10, 16, 100]
-list4 = []
-assert quickSort(list4, 0, 0) == []
+if __name__ == "__main__":
+    list1 = [4, 5, 3, 2]
+    assert quickSort(list1, 0, 3) == [2, 3, 4, 5]
+    list2= [10, 7, 5, 2]
+    print(quickSort(list2, 0, 3))
+    assert quickSort(list2, 0, 3) == [2, 5, 7, 10]
+    list3 = [10, 8, -2, 3, 16, 100]
+    assert quickSort(list3, 0, 5) == [-2, 3, 8, 10, 16, 100]
+    list4 = []
+    assert quickSort(list4, 0, 0) == []
